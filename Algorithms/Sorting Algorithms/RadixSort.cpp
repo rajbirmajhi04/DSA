@@ -61,7 +61,7 @@ void RadixSort(int array[], int size){
 
 int main()
 {
-    int array[] = {170, 45, 75, 90, 802, 24, 2, 66};
+    int array[] = {170, 45, 75, 90, 802, 24, 2, 66, 20, 785, 523, 29, 654, 856, 890, 37, 700};
     int size = sizeof(array) / sizeof(array[0]);
 
     cout << "Unsorted Array: " << endl;
