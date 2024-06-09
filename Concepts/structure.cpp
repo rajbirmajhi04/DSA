@@ -1,6 +1,11 @@
 #include <iostream>
 using namespace std;
 
+// renaming of structures
+typedef struct food{
+	
+} fd;
+
 // Passing structure to functions
 struct Employee
 {
