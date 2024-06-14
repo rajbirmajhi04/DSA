@@ -13,7 +13,7 @@ int main()
     // Arrays
     array <int, 5> array1 = {1, 2, 3, 4, 5};      // direct initialization
     array <int, 5> array2 = {1, 2, 3};           // direct initialization but incomplete fillings
-    array <int, 5> array4 = array2;             // copying from another array
+    array <int, 5> array4(array2);              // copying from another array
     array <int, 5> array3 = {};                // empty initialization with default elements as zeros
     
     // Vectors
@@ -79,7 +79,7 @@ int main()
     list5.push_front(100);
     list5.insert(list5.begin(), 200);
 
-    // Renoving elements
+    // Removing elements
     v4.clear();
     v4.pop_back();
     v4.erase(v4.begin());
