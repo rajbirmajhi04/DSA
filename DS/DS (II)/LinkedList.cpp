@@ -33,7 +33,7 @@ int main()
     three -> next = four;
     four -> next = NULL;
 
-    // print the linked list value
+    // traversal
     head = one;
     while(head != NULL){
         cout << head -> data << " ---> ";
