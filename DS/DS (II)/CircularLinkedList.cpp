@@ -90,9 +90,42 @@ void deleteNode(struct Node *head, int key){
         cout << "List is empty!" << endl;
         return;
     }
+ Node* temp = head;
+    Node* prev = nullptr;
 
+    // If head needs to be removed
+    if (temp != nullptr && temp->data == key) {
+        if (temp->next == head) {
+            head = nullptr; // Only one node in the list
+            delete temp;
+            return;
+        }
 
- 
+        while (temp->next != head) {
+            temp = temp->next;
+        }
+
+        temp->next = head->next;
+        delete head;
+        head = temp->next;
+        return;
+    }
+
+    // Search for the node to be deleted
+    while (temp->next != head && temp->data != key) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    // Node not found
+    if (temp->data != key) {
+        cout << "Node not found." << endl;
+        return;
+    }
+
+    // Node found, unlink it
+    prev->next = temp->next;
+    delete temp;
 }
 
 
