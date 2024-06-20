@@ -18,7 +18,7 @@ bool isFull(const CircularQueue &cq){
 
 bool isEmpty(const CircularQueue &cq){
     return (cq.front == -1);
-}
+}   
 
 void enqueue(CircularQueue &cq, int value){
     if(isFull(cq)){

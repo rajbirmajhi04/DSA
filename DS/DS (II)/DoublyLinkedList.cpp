@@ -6,7 +6,6 @@ struct Node {
     int data;
     struct Node *next;
     struct Node *previous;
-    
 };
 
 // function to create a new node
