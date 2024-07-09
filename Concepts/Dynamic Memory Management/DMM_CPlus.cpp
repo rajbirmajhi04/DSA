@@ -52,6 +52,8 @@ int main()
         p = nullptr;
     }
 
+    int *pV = new(nothrow) int(56);
+
     // Request block of memory using new. Single step initialization
     float *f = new float(75.25);
     cout << "Assigned Value: " << *f << endl;
