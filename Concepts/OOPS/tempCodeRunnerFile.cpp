@@ -1,0 +1,1 @@
+r is " << name << " and it's color is " << color << " equipped with " << hp << " hp engine that can achieve a top speed of " << topSpeed << endl;
