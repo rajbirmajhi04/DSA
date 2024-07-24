@@ -7,48 +7,114 @@ using namespace std;
 ? can be overloaded and cannot be declared virtual
 */
 
-class Cars{
-    string name;
-    string color;
-    double topSpeed;
-    double hp;
-
+class student{
+    private:
+        int rollno;
+        string name;
+        double fee;
+    protected:
+        int student_school_id;
     public:
-        // defining constructor within the class
-        Cars();
-        // {
-        //     cout << "Enter car name: ";
-        //     cin >> name; 
-        //     cout << "Enter color: ";
-        //     cin >> color;
-        //     cout << "Enter top speed: ";
-        //     cin >> topSpeed;
-        //     cout << "Enter horse power: ";
-        //     cin >> hp;
-        // }
-        // member function 
-        void display();
+        student(){
+            cout << "Enter roll no: ";
+            cin >> rollno;
+            cout << "Enter name: ";
+            cin >> name;
+            cout << "Enter school fees: ";
+            cin >> fee;
+            cout << "Enter student school id: ";
+            cin >> student_school_id;
+            cout << endl;
+        }
+        void display_data(){
+            cout << "!!!***** Displaying Student Data *****!!!" << endl;
+            cout << "Student Name: " << name << endl;
+            cout << "Student Roll No: " << rollno << endl;
+            cout << "Student Current Fees: " << fee << endl;
+            cout << "Student School ID: " << student_school_id << endl;
+        }
 };
 
-// defining constructor outside the class
-Cars::Cars(){
-    cout << "Enter car name: ";
-    cin >> name; 
-    cout << "Enter color: ";
-    cin >> color;
-    cout << "Enter top speed: ";
-    cin >> topSpeed;
-    cout << "Enter horse power: ";
-    cin >> hp;
+// Default Constructor
+class buffer {
+    public:
+        // compiler "declared" constructor 
+};
+class loading {
+    public:
+        // user defined constructor
+        loading(){ cout << "User Defined Constructor" << endl; }
+        int size;
+};
+class B: public loading {
+    // compiler defined default constructor of B and inserts stub to call loading constructor
+    // compiler won't initialize any data of A
+};
+class c: public loading {
+    public:
+        c(){ cout << "C Constructor" << endl; }
+};
+
+// parameterized constructor
+class employee {
+    private:
+        int emp_id;
+        string emp_name;
+        double emp_salary;
+    
+    public:
+        employee(int, string, double);
+        void display();
+};
+// parameterized constructor outside the class 
+employee::employee(int i, string n, double s){
+    emp_id = i;
+    emp_name = n;
+    emp_salary = s;
+}
+void employee::display(){
+    cout << "Employee Name: " << emp_name << endl;
+    cout << "Employee Salary: " << emp_salary << endl;
+    cout << "Employee ID: " << emp_id << endl;
 }
 
-void Cars::display(){
-    cout << "The car is " << name << " and it's color is " << color << " equipped with " << hp << " hp engine that can achieve a top speed of " << topSpeed << endl;
-}
+// parameterized constructor with default value
+class GFG {
+private:
+    int data;
+
+public:
+    // parameterized constructor with default values
+    GFG(int x = 0) { data = x; }
+    int getData() { return data; }
+};
+
+// member initializer Lists: provides a clean and compact way to initilize data members of the ckass 
+// using parameterized constructor
+class Car {
+    public:
+        Car(string n, string c, int ts, int m): name(n), color(c), top_speed(ts), mileage(m){}
+        string name;
+        string color;
+        int top_speed;
+        int mileage;
+};
+
+//copy constructor: is a type of constructor that initializes an object using object of the same class,
+// a constructor which creats an object by initializing it with an object of the same class which has been,
+// created previously is known as copy constructor.
 
 int main()
 {
-    Cars c1; 
-    c1.display();
+    // student s;
+    // s.display_data();
+
+    // employee e(34, "Rahul", 50000.00);
+    // e.display();
+
+    // Car c("BMW", "Red", 275, 22);
+
     return 0;
 }
+
+  
