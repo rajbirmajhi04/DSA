@@ -1,1 +1,5 @@
-r is " << name << " and it's color is " << color << " equipped with " << hp << " hp engine that can achieve a top speed of " << topSpeed << endl;
+    // _Base b(10, 20, 30);
+    // b.display();
+
+    // _Base b1(b);
+    // b1.display();

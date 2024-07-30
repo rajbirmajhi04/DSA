@@ -1,9 +1,6 @@
 #include <iostream>
 using namespace std;
 
-/*
-*It's a good practice to have friend class or friend functons to access the private and protected variables of base class
-*/
 // forward declaration needed for defining member function as a friend function
 class base;
 class secondary{

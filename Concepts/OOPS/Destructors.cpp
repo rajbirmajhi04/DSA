@@ -2,52 +2,54 @@
 using namespace std;
 
 class test {
-    private:
-        int count = 0;
     public:
-    
         test(){
-            cout << "Constructor called!" << endl;
-            count ++;
-            cout << "No. of object created: " << count << endl;
-            
+            cout << "constructor called" << endl;
         }
         ~test(){
-            cout << "Destructor called!" << endl;
-            cout << "Number of object destroyed: " << count << endl;
-            count --;
+            cout << "destructor called" << endl;
         }
 };
 
-// when a class has a private destructor only dynamic objects of that class can be created
-class buffer {
+/*
+* Private Destructors: Whenever we want to control the destruction of objects of a class.
+* Only dynamic objects of that class can be created.
+* Only friend functions can delete the objects
+*/
+
+class Sample {
     private:
-        ~buffer(){
-            cout << "Buffer deallocated!" << endl;
+        ~Sample(){
+            cout << "private destructor called" << endl;
         }
     public:
-        buffer(){
-            cout << "Buffer created!" << endl;
+        Sample(){
+            cout << "constructor called" << endl;
         }
-        // only this function cn destruct obejct of test
-        friend void destructorBuffer(buffer*);
+        friend void destructSample(Sample *ptr);
 };
-void destructorBuffer(buffer* ptr){
+
+void destructSample(Sample *ptr){
     delete ptr;
 }
 
-
-
 int main()
-{
-    // test t, t1, t2, t3, t4, t5;
+{   
+    // throws error
+    // Sample s1; 
+    // delete s1;
 
-    // create a new object
-    buffer *b = (buffer*)malloc(sizeof(buffer));
-    buffer *ptr = new buffer;
+    // this works because there is no object being constructed, the program just creates a pointer of type "Sample *", so nothing is destructed
+    Sample *s2;
 
-    // destruct an object
-    destructorBuffer(ptr);
+    // this also works because when something is created using dynamic memory allocation, it is the programmers responsibility to delete it.
+    Sample *s3 = new Sample;
+    Sample *s4 = (Sample*)malloc(sizeof(Sample));
+
+    // destruct 
+    destructSample(s2);
+    destructSample(s3);
+    destructSample(s4);
 
     return 0;
 }
