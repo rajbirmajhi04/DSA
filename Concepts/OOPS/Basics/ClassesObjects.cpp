@@ -1,21 +1,6 @@
 #include <iostream>
 using namespace std;
 
-//* class: are the user-defined data type that has data members and member functions.
-//* Data Member: data variables
-//* Member Functions: are the functions that are used to manipulate these variables
-//* Object: is an instance of a class. Means when a class is defined no memory is allocated but when it is instantiated memory is allocated.
-
-/*
- *Public: all the class members decalred inside public can be accessed from everywhere by other classes and function too. Can be accessed from anywhere using direct member operator (.) with the object of that class
-
- *Private: private members can only be accessed within the class and by the friend function members.
-
- *Protected: protected members can only be accessed within the class and from the derived class
-
- ! if we dont specify the access modifier then by default the access modifiers for the members is set to private 
-*/
-
 class Room{
     private:
         double radius;
@@ -54,7 +39,7 @@ double Room::perimeter(){
 }
 
 // derived class to access the protected member of parent class
-class child_room: public Room{
+class child_room:public Room {
     public:
         double calculate_circumference(double c)
         {
